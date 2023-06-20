@@ -15,7 +15,7 @@ int main(){
             c += a[i]-in;
             in = a[i];
         } else if (a[i] < in){
-            c += n-(in-a[i]);
+            c += (n-in)+a[i];
             in = a[i];
         }
     }

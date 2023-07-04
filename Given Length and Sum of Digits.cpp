@@ -16,10 +16,7 @@ int main(){
         else {
             for (int i = m-1; i >= 0; i--)
                 a += b[i];
-            
-            int k = 0;
-            while(a[k] == '0') k++;
-            cout << k << endl;
+            int k = 0; while(a[k] == '0') k++;
             a[k]--, a[0]++;
             cout << a << " " << b;
         }

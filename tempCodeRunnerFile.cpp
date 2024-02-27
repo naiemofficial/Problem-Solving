@@ -1,21 +1,25 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
+#include <cmath>
 
 int main() {
-    vector<vector<int>> a(4, vector<int>(2));
-    
-    for (int i = 0; i < 4; ++i)
-        for (int j = 0; j < 2; ++j)
-            cin >> a[i][j];
-    
-    vector<int> x;
-    for (int i = 0; i < 4; ++i)
-        x.push_back(a[i][0]);
+    long a, b, l;
+    std::cin >> a >> b >> l;
 
-    int dx = *max_element(x.begin(), x.end()) - *min_element(x.begin(), x.end());
-    cout << dx * dx << endl;
+    int count = 0;
+    int m = 2;
 
+    // Calculate the maximum value of x
+    int max_x = std::log(l) / std::log(a);
+
+    for (int x = 0; x <= max_x; ++x) {
+        for (int y = 0; y <= m; ++y) {
+            long s = std::pow(a, x) * std::pow(b, y);
+            if (l == s) {
+                count++;
+            }
+        }
+    }
+
+    std::cout << "=> " << count << std::endl;
     return 0;
 }

@@ -3,16 +3,16 @@ using namespace std;
 
 class Solution {
 public:
-    int fn(int i, vector<int> &nums, vector<int> &dp){
+    int fn(int i, vector<int> &nums, unordered_map<int, int> &dp){
         if(i >= nums.size()) return 0;
-        if(dp[i] >= 0) return dp[i];
+        if(dp[i]) return dp[i];
 
         int pick    = nums[i] + fn(i+2, nums, dp);
         int n_pick  = fn(i+1, nums, dp);
         return dp[i] = max(pick, n_pick);
     }   
     int rob(vector<int>& nums){
-        vector<int> dp(nums.size()+1, -1);
+        unordered_map<int, int> dp;
         return fn(0, nums, dp);
     }
 };
